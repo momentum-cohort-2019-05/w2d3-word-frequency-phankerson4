@@ -4,6 +4,21 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
+#Opens the text file and splits the sentences
+seneca_falls = open("seneca_falls.txt") 
+lines = (seneca_falls.readline())
+lines = lines.lower()
+#lines = lines.split(" ")
+import re
+
+def clean_text(text):
+    """Purge text of casing, special characters"""
+    text = (str(text)).lower()
+    text = re.sub(r'[^a-z ]', '', text)
+    text = re.sub('\\n', '', text)
+    return text
+
+
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
